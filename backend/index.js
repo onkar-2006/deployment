@@ -6,7 +6,12 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-app.use(cors()); 
+
+app.use(cors({
+  origin: 'https://mern-frontend-onkar.onrender.com',
+  credentials: true
+}));
+
 app.use(express.json());
 
 app.get('/health', (req, res) => res.status(200).send('System Online'));
